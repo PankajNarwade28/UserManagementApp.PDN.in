@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Page.</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        border-color: #211b16;
+        padding: 2px;
+      }
+      tr:nth-child(even) {
+        background-color: #d6eeee;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      table {
+        width: 80%;
+      }
+      .btn2 {
+        border: 1px solid rgb(15, 15, 15);
+        text-align: center;
+        background-color: #fff;
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+      .btn2:hover {
+        cursor: pointer;
+        color: rgb(219, 17, 17);
+        background-color: rgb(235, 228, 228);
+      }
+      .btn1 {
+        border: 1px solid rgb(10, 10, 8);
+        text-align: center;
+        background-color: #fff;
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
+      .btn1:hover {
+        cursor: pointer;
+        color: blue;
+        background-color: rgb(205, 210, 212);
+      }
+
+      #home {
+        padding: 5px 25px;
+      }
+      #add {
+        padding: 5px 25px;
+      }
+      .form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #div {
+        display: flex;
+        flex-direction: row;
+      }
+      h1 {
+        color: orange;
+        text-align: center;
+      }
+      .btn3 {
+        border: 1px solid rgb(15, 15, 15);
+        text-align: center;
+        padding: 5px;
+        background-color: #fff;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 40px;
+        width: 100%;
+      }
+      .btn3:hover {
+        cursor: pointer;
+        color: rgb(8, 20, 7);
+        background-color: rgb(124, 255, 63);
+      }
+    </style>
+  </head>
+  <body>
+    <H1>USER DATA TABLE</H1>
+    <div id="div">
+      <form method="get" action="/back/home">
+        <button class="btn3" id="home">
+          <i class="fa-solid fa-user-minus"></i> &nbsp; Home
+        </button>
+      </form>
+      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+      <form method="get" action="/user/add">
+        <button class="btn3" id="add">
+          <i class="fa-solid fa-user-minus"></i> &nbsp; Add New User!
+        </button>
+      </form>
+    </div>
+
+    <br />
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Edit</th>
+      </tr>
+      <% for ( user of users){%>
+      <tr>
+        <td>
+          <i class="fa-solid fa-id-card-clip"> </i>&nbsp;&nbsp;<%= user.id %>
+        </td>
+        <td>
+          <i class="fa-regular fa-user"></i>&nbsp;&nbsp;<%= user.username %>
+        </td>
+        <td>
+          <i class="fa-regular fa-envelope"></i>&nbsp;&nbsp;<%= user.email %>
+        </td>
+        <td>
+          <form method="get" action="/user/<%=user.id%>/edit">
+            &nbsp;
+            <button class="btn1">
+              <i class="fa-solid fa-user-pen"></i>
+              Edit Username!
+            </button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="/user/<%= user.id %>/delete">
+            <button class="btn2">
+              <i class="fa-solid fa-user-minus"></i> Delete User!
+            </button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page.</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      h1 {
+        color: orange;
+        text-align: center;
+      }
+      .btn {
+        border: 1px solid rgb(15, 15, 15);
+        text-align: center;
+        padding: 5px;
+        background-color: #fff;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 40px;
+        width: 100%;
+      }
+      .btn:hover {
+        cursor: pointer;
+        color: rgb(8, 20, 7);
+        background-color: rgb(124, 255, 63);
+      }
+      #join {
+        padding: 5px 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      The Total no of Users are :
+      <i class="fa-regular fa-user"></i><%= count %>
+    </h1>
+
+    <form action="/user">
+      <button id="join" class="btn">
+        <i class="fa-solid fa-right-to-bracket"></i>&nbsp;&nbsp;Explore!
+      </button>
+    </form>
+  </body>
+</html>
